@@ -1,0 +1,19 @@
+package com.example.weatheroftheworld;
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+
+public class myPreference {
+ SharedPreferences prefs;
+
+public myPreference(Activity activity)
+{
+	prefs = activity.getPreferences(Activity.MODE_PRIVATE);
+}
+public String getCity(){
+	return prefs.getString("city", "Pune, IN");
+}
+void setCity(String city){
+	prefs.edit().putString("city", city).commit();
+}
+}
